@@ -1,0 +1,72 @@
+﻿<Window x:Class="Tiscord.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tiscord"
+        mc:Ignorable="d"
+        Title="Tiscord" Height="450" Width="800">
+    <Window.Resources>
+        <local:EmptyTextVisibilityConverter x:Key="EmptyTextVisibilityConverter" />
+    </Window.Resources>
+    <DockPanel Background="#2C2F33">
+        <!-- Кнопка для добавления модуля -->
+        <Button Content="Добавить модуль" 
+            Click="ConfigureModule_Click" 
+            DockPanel.Dock="Top"
+            Background="#7289DA" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            BorderThickness="0" 
+            Margin="0,5,0,0" 
+            Padding="8,4"/>
+
+        <!-- Панель настроек модуля -->
+        <StackPanel x:Name="ModuleSettingsPanel" 
+                DockPanel.Dock="Right" 
+                Width="200" 
+                Margin="10" 
+                Visibility="Collapsed" 
+                Background="#2C2F33">
+
+            <Grid Margin="5">
+                <TextBox x:Name="TitleTextBox" 
+                     Background="#40444B" 
+                     Foreground="#DCDDDE" 
+                     BorderThickness="0" 
+                     Margin="5"
+                     Padding="8,4"/>
+                <TextBlock Text="Введите заголовок" 
+                       IsHitTestVisible="False" 
+                       Foreground="Gray"
+                       VerticalAlignment="Center" 
+                       Margin="5,0" 
+                       Visibility="{Binding Text, ElementName=TitleTextBox, Converter={StaticResource EmptyTextVisibilityConverter}}"/>
+            </Grid>
+
+            <ComboBox x:Name="ColorComboBox" 
+                  Margin="5" 
+                  Background="#40444B" 
+                  Foreground="#DCDDDE" 
+                  BorderThickness="0">
+                <ComboBoxItem Content="LightGreen" />
+                <ComboBoxItem Content="LightBlue" />
+                <ComboBoxItem Content="LightCoral" />
+            </ComboBox>
+
+            <!-- Кнопка добавления нового модуля -->
+            <Button Content="Добавить" 
+                Click="AddModule_Click" 
+                Margin="5" 
+                Background="#7289DA" 
+                Foreground="White" 
+                FontWeight="Bold" 
+                BorderThickness="0" 
+                Padding="8,4"/>
+        </StackPanel>
+
+        <!-- Контейнер для модулей -->
+        <ItemsControl x:Name="ModuleContainer" Background="#2C2F33"/>
+    </DockPanel>
+
+</Window>

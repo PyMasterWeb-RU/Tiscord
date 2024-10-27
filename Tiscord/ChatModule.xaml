@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="Tiscord.ChatModule"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="#2C2F33" Foreground="#DCDDDE">
+    <Border Background="#36393F" BorderBrush="#202225" BorderThickness="2">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Заголовок -->
+            <TextBlock Text="{Binding Title}" FontSize="18" FontWeight="Bold"
+                       HorizontalAlignment="Center" Margin="10" Foreground="#FFFFFF"/>
+
+            <!-- История сообщений -->
+            <ListBox x:Name="MessagesListBox" Grid.Row="1" Background="#2C2F33" BorderThickness="0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="#3A3F45" CornerRadius="8" Margin="5" Padding="10">
+                            <TextBlock Text="{Binding}" FontSize="14" Foreground="#FFFFFF"/>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <!-- Поле для ввода сообщения и кнопка "Отправить" -->
+            <Grid Grid.Row="2" Background="#40444B" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="MessageTextBox" Grid.Column="0" Background="#40444B" Foreground="#DCDDDE" BorderThickness="0" Margin="5"/>
+                <Button Content="Отправить" Grid.Column="1" Width="100" Background="#7289DA" Foreground="White" BorderThickness="0" Margin="5" Click="SendButton_Click"/>
+            </Grid>
+
+
+            <!-- Кнопка изменения размера -->
+            <Thumb Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="16" Height="16"
+                   Margin="5" DragDelta="ResizeThumb_DragDelta"/>
+        </Grid>
+    </Border>
+</UserControl>
