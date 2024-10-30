@@ -8,4 +8,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Resource\SplashScreen.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resource\SplashScreen.png" />
+  </ItemGroup>
+
 </Project>

@@ -1,0 +1,21 @@
+﻿<Window x:Class="Tiscord.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SplashScreen" WindowStyle="None" ResizeMode="NoResize"
+        Height="450" Width="800" Background="#2C2F33" AllowsTransparency="True" Opacity="0">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                     From="0" To="1" Duration="0:0:3" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid>
+        <Image Source="pack://application:,,,/Resource/SplashScreen.png" 
+           HorizontalAlignment="Center" VerticalAlignment="Center" />
+    </Grid>
+</Window>

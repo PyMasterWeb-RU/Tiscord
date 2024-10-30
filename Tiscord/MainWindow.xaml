@@ -9,9 +9,11 @@
     <Window.Resources>
         <local:EmptyTextVisibilityConverter x:Key="EmptyTextVisibilityConverter" />
     </Window.Resources>
-    <DockPanel Background="#2C2F33">
+    <TabControl x:Name="MainTabControl">
+        <TabItem Header="Главная">
+            <DockPanel Background="#2C2F33">
         <!-- Кнопка для добавления модуля -->
-        <Button Content="Добавить модуль" 
+        <Button Content="Добавить модуль"   
             Click="ConfigureModule_Click" 
             DockPanel.Dock="Top"
             Background="#7289DA" 
@@ -19,7 +21,7 @@
             FontWeight="Bold" 
             BorderThickness="0" 
             Margin="0,5,0,0" 
-            Padding="8,4"/>
+            Padding="8,4" Height="42" Width="246"/>
 
         <!-- Панель настроек модуля -->
         <StackPanel x:Name="ModuleSettingsPanel" 
@@ -68,5 +70,10 @@
         <!-- Контейнер для модулей -->
         <ItemsControl x:Name="ModuleContainer" Background="#2C2F33"/>
     </DockPanel>
+        </TabItem>
+        <TabItem Header="Профиль" x:Name="ProfileTab" Visibility="Collapsed">
+            <local:UserProfileControl x:Name="UserProfileControl" />
+        </TabItem>
+    </TabControl>
 
 </Window>

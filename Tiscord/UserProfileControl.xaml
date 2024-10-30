@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="Tiscord.UserProfileControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Tiscord"
+             Background="#2C2F33" Foreground="#DCDDDE">
+    <Grid Margin="20">
+        <StackPanel HorizontalAlignment="Center" Width="300" Margin="0,10">
+            <TextBlock Text="Профиль пользователя" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+            <!-- Поля для отображения информации -->
+            <Grid>
+                <TextBox x:Name="NameTextBox" Background="#40444B" Foreground="#DCDDDE" BorderThickness="0" Margin="0,5" />
+                <TextBlock Text="Имя" Foreground="Gray" VerticalAlignment="Center" Margin="10,0,0,0" IsHitTestVisible="False"
+                           Visibility="{Binding Text, ElementName=NameTextBox, Converter={StaticResource EmptyTextVisibilityConverter}}"/>
+            </Grid>
+            <Grid>
+                <TextBox x:Name="SurnameTextBox" Background="#40444B" Foreground="#DCDDDE" BorderThickness="0" Margin="0,5" />
+                <TextBlock Text="Фамилия" Foreground="Gray" VerticalAlignment="Center" Margin="10,0,0,0" IsHitTestVisible="False"
+                           Visibility="{Binding Text, ElementName=SurnameTextBox, Converter={StaticResource EmptyTextVisibilityConverter}}"/>
+            </Grid>
+            <Grid>
+                <TextBox x:Name="EmailTextBox" Background="#40444B" Foreground="#DCDDDE" BorderThickness="0" Margin="0,5" />
+                <TextBlock Text="Email" Foreground="Gray" VerticalAlignment="Center" Margin="10,0,0,0" IsHitTestVisible="False"
+                           Visibility="{Binding Text, ElementName=EmailTextBox, Converter={StaticResource EmptyTextVisibilityConverter}}"/>
+            </Grid>
+            <Grid>
+                <TextBox x:Name="PhoneNumberTextBox" Background="#40444B" Foreground="#DCDDDE" BorderThickness="0" Margin="0,5" />
+                <TextBlock Text="Телефон" Foreground="Gray" VerticalAlignment="Center" Margin="10,0,0,0" IsHitTestVisible="False"
+                           Visibility="{Binding Text, ElementName=PhoneNumberTextBox, Converter={StaticResource EmptyTextVisibilityConverter}}"/>
+            </Grid>
+
+            <!-- Кнопка сохранения изменений -->
+            <Button Content="Сохранить" Background="#7289DA" Foreground="White" BorderThickness="0" Padding="10" Margin="0,10" Click="SaveProfile_Click"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

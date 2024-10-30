@@ -1,0 +1,56 @@
+﻿<Window x:Class="Tiscord.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Авторизация" Height="450" Width="800"
+        Background="#2C2F33" Foreground="#DCDDDE">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Text="Добро пожаловать в Tiscord" 
+                   FontSize="24" FontWeight="Bold" 
+                   HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+        <!-- Форма авторизации -->
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Width="300" Margin="0,70,0,0">
+            <!-- Поле для Email -->
+            <Grid>
+                <TextBox x:Name="EmailTextBox" 
+             Background="#40444B" Foreground="#DCDDDE" 
+             BorderThickness="0" Padding="10" Margin="0,5"/>
+                <TextBlock Text="Почта" 
+               Foreground="Gray" 
+               VerticalAlignment="Center" 
+               Margin="15,0,0,0"
+               IsHitTestVisible="False"
+               Visibility="{Binding Text, ElementName=EmailTextBox, Converter={StaticResource EmptyTextVisibilityConverter}}"/>
+            </Grid>
+
+
+            <!-- Поле для пароля -->
+            <Grid>
+                <PasswordBox x:Name="PasswordBox" 
+                 Background="#40444B" Foreground="#DCDDDE" 
+                 BorderThickness="0" Padding="10" Margin="0,5"
+                 PasswordChanged="PasswordBox_PasswordChanged"/>
+                <TextBlock x:Name="PasswordPlaceholder" Text="Пароль" 
+               Foreground="Gray" 
+               VerticalAlignment="Center" 
+               Margin="15,0,0,0"
+               IsHitTestVisible="False"/>
+            </Grid>
+
+
+            <!-- Кнопка Входа -->
+            <Button Content="Войти" Background="#7289DA" Foreground="White" 
+                    BorderThickness="0" Padding="10" Margin="0,10" Height="38" Click="LoginButton_Click"/>
+            <Button Content="Регистрация" Background="#5865F2" Foreground="White" 
+                    BorderThickness="0" Padding="10" Height="36" Click="OpenRegisterWindow"/>
+
+            <!-- Кнопка для перехода на регистрацию -->
+        </StackPanel>
+    </Grid>
+</Window>
