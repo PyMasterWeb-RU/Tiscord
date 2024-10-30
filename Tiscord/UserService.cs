@@ -19,10 +19,6 @@ public class UserService
     {
         _httpClient.DefaultRequestHeaders.Authorization =
             new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", accessToken);
-
-        // Выводим токен в консоль для проверки
-        Console.WriteLine($"Токен авторизации: {accessToken}");
-        MessageBox.Show($"Токен авторизации: {accessToken}");
     }
 
     public async Task<UserProfile> GetProfile()

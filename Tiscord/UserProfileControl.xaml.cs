@@ -29,7 +29,6 @@ namespace Tiscord
             var profile = await _userService.GetProfile();
             if (profile != null)
             {
-                MessageBox.Show($"Name: {profile.Name}, Email: {profile.Email}");
                 NameTextBox.Text = profile.Name;
                 SurnameTextBox.Text = profile.Surname;
                 EmailTextBox.Text = profile.Email;
